@@ -53,11 +53,6 @@ public class CoinController {
         return repository.save(newCoin);
     }
 
-    @GetMapping("/ping")
-    public Map<String, String> ping() {
-        return Map.of("message", "pong");
-    }
-
     /**
      * Get a coin by its ID.
      *
