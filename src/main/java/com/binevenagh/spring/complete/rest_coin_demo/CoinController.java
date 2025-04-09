@@ -1,16 +1,11 @@
 package com.binevenagh.spring.complete.rest_coin_demo;
 
-//import io.swagger.v3.oas.annotations.Operation;
-import jakarta.validation.Valid;
-import jakarta.validation.Validator;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Controller for handling requests related to coins.
@@ -34,7 +29,7 @@ public class CoinController {
      *
      * @return a list of all coins
      */
-    //@Operation(summary = "Get all coins", description = "Retrieve a list of all coins")
+    @Operation(summary = "Get all coins", description = "Retrieve a list of all coins")
     @GetMapping("/coins")
     List<Coin> all() {
         return repository.findAll();
@@ -46,7 +41,7 @@ public class CoinController {
      * @param newCoin the coin to be created
      * @return the created coin
      */
-    //@Operation(summary = "Create a new coin", description = "Create a new coin")
+    @Operation(summary = "Create a new coin", description = "Create a new coin")
     @PostMapping(value = "/coins", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Coin newCoin(@RequestBody Coin newCoin) {
@@ -60,7 +55,7 @@ public class CoinController {
      * @return the coin with the specified ID
      * @throws CoinNotFoundException if the coin is not found
      */
-    //@Operation(summary = "Get a coin by ID", description = "Retrieve a coin by its ID")
+    @Operation(summary = "Get a coin by ID", description = "Retrieve a coin by its ID")
     @GetMapping("/coins/{id}")
     Coin one(@PathVariable Long id) {
         return repository.findById(id)
@@ -74,7 +69,7 @@ public class CoinController {
      * @param id the ID of the coin to be replaced
      * @return the updated coin
      */
-    //@Operation(summary = "Replace a coin", description = "Replace a coin with new data")
+    @Operation(summary = "Replace a coin", description = "Replace a coin with new data")
     @PutMapping("/coins/{id}")
     Coin replaceCoin(@RequestBody Coin newCoin, @PathVariable Long id) {
         return repository.findById(id)
@@ -93,7 +88,7 @@ public class CoinController {
      *
      * @param id the ID of the coin to be deleted
      */
-    //@Operation(summary = "Delete a coin", description = "Delete a coin by its ID")
+    @Operation(summary = "Delete a coin", description = "Delete a coin by its ID")
     @DeleteMapping("/coins/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteCoin(@PathVariable Long id) {
