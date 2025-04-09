@@ -1,4 +1,4 @@
-package com.binevenagh.spring.complete.rest_coin_demo;
+package com.binevenagh.spring.complete.rest_coin_demo.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,12 +22,16 @@ public class Coin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @DecimalMin(value = "0.1", message = "Weight must be greater than or equal to 0.1")
     private Double weight;
 
+    @NotBlank(message = "Description is mandatory")
     private String description;
 
+    @DecimalMin(value = "0.1", message = "Fineness must be greater than or equal to 0.1")
     private Double fineness;
 
+    @Pattern(regexp = "gold|silver|platinum", message = "Metal must be either gold, silver, or platinum")
     private String metal;
 
     public Coin() {
@@ -37,7 +41,7 @@ public class Coin {
         this.weight = weight;
         this.description = description;
         this.fineness = fineness;
-        this.metal = metal;
+        this.metal = metal.toLowerCase();
     }
 
     public Long getId() {
@@ -77,6 +81,6 @@ public class Coin {
     }
 
     public void setMetal(String metal) {
-        this.metal = metal;
+        this.metal = metal.toLowerCase();
     }
 }

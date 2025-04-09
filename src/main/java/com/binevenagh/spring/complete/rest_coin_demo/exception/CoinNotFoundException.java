@@ -1,4 +1,4 @@
-package com.binevenagh.spring.complete.rest_coin_demo;
+package com.binevenagh.spring.complete.rest_coin_demo.exception;
 
 /**
  * Exception thrown when a coin with the specified ID is not found.
@@ -14,7 +14,7 @@ public class CoinNotFoundException extends RuntimeException {
      *
      * @param id the ID of the coin that could not be found
      */
-    CoinNotFoundException(Long id) {
+    public CoinNotFoundException(Long id) {
         super("Could not find coin " + id);
     }
 }

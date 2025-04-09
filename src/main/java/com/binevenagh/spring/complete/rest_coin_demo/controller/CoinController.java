@@ -1,7 +1,11 @@
-package com.binevenagh.spring.complete.rest_coin_demo;
+package com.binevenagh.spring.complete.rest_coin_demo.controller;
 
+import com.binevenagh.spring.complete.rest_coin_demo.exception.CoinNotFoundException;
+import com.binevenagh.spring.complete.rest_coin_demo.data.Coin;
+import com.binevenagh.spring.complete.rest_coin_demo.data.CoinRepository;
 import io.swagger.v3.oas.annotations.Operation;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,9 +46,9 @@ public class CoinController {
      * @return the created coin
      */
     @Operation(summary = "Create a new coin", description = "Create a new coin")
-    @PostMapping(value = "/coins", produces = "application/json")
+    @PostMapping(value = "/coins")
     @ResponseStatus(HttpStatus.CREATED)
-    public Coin newCoin(@RequestBody Coin newCoin) {
+    public Coin newCoin(@Valid @RequestBody Coin newCoin) {
         return repository.save(newCoin);
     }
 

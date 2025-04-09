@@ -1,4 +1,4 @@
-package com.binevenagh.spring.complete.rest_coin_demo;
+package com.binevenagh.spring.complete.rest_coin_demo.config;
 
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.OpenAPI;

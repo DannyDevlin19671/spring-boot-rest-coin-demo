@@ -1,5 +1,7 @@
 package com.binevenagh.spring.complete.rest_coin_demo;
 
+import com.binevenagh.spring.complete.rest_coin_demo.data.Coin;
+import com.binevenagh.spring.complete.rest_coin_demo.data.CoinRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
